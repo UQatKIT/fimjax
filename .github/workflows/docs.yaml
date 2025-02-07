@@ -32,7 +32,7 @@ jobs:
           pip install .[docs]
       - name: Build MkDocs documentation
         id: build-docs
-        run: uv run mkdocs build
+        run: mkdocs build
       - name: Upload static files as artifact
         id: upload_artifact
         uses: actions/upload-pages-artifact@v3

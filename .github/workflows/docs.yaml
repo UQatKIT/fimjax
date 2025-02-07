@@ -1,0 +1,55 @@
+name: Docs
+run-name: Re-create docs on Gihub pages from tagged commit
+
+# -- Trigger Events --------------------------------------------------------------------------------
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - v*
+
+# -- Concurrency -----------------------------------------------------------------------------------
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}s
+
+# -- Jobs ------------------------------------------------------------------------------------------
+jobs:
+  #Build documentation and upload as artifact
+  build-docs:
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - name: Checkout code
+        id: checkout-code
+        uses: actions/checkout@v4
+      - name: Install uv
+        id: setup-uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Install dependencies
+        id: install-deps
+        run: uv sync --only-group docs
+      - name: Build MkDocs documentation
+        id: build-docs
+        run: uv run mkdocs build
+      - name: Upload static files as artifact
+        id: upload_artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+  # Deploy documentation artifact to Github Pages
+  deploy-docs:
+    runs-on: ubuntu-latest
+    needs: build-docs
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: release
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

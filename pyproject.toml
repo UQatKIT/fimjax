@@ -29,6 +29,12 @@ test = [
 "scipy>=1.12.0",
 "fim-python>=1.2",
 ]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocs-autorefs",
+    "mkdocstrings-python"
+]
 
 #---------------------------------------------------------------------------------------------------
 [build-system]

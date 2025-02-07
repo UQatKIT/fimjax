@@ -1,0 +1,105 @@
+# ====================================== General Configuration =====================================
+[project]
+name = "fimjax"
+version = "0.0.1"
+description = "FIM Library using JAX"
+readme = "README.md"
+license = {text = "GNU GPLv3"}
+authors = [
+{name = "Felix Racz", email = "felix.racz@kit.edu"},
+{name = "Maximilian Kruse", email = "maximilian.kruse@kit.edu"},
+]
+
+requires-python = ">=3.12"
+dependencies = [
+"numpy>=1.26.3",
+"jax>=0.4.25",
+"jaxlib>=0.4.25",
+"chex>=0.1.85"
+, "fim-python>=1.2.2,<2"]
+
+#---------------------------------------------------------------------------------------------------
+[project.optional-dependencies]
+style = [
+"ruff>=0.0.292",
+"black>=24.1.0",
+"mypy>=1.8.0",
+]
+test = [
+"scipy>=1.12.0",
+"fim-python>=1.2",
+]
+
+#---------------------------------------------------------------------------------------------------
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# =============================================== Ruff =============================================
+[tool.ruff]
+line-length = 100
+src = ["src"]
+select = ["E", "F", "UP", "D",]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+exclude = [
+".bzr",
+".direnv",
+".eggs",
+".git",
+".git-rewrite",
+".hg",
+".mypy_cache",
+".nox",
+".pants.d",
+".pytype",
+".ruff_cache",
+".svn",
+".tox",
+".venv",
+"pypackages",
+"_build",
+"buck-out",
+"build",
+"dist",
+"node_modules",
+"venv",
+]
+
+#---------------------------------------------------------------------------------------------------
+[tool.ruff.pydocstyle]
+convention = "google"
+
+# =============================================== Black ============================================
+[tool.black]
+line-length = 100
+
+# =============================================== Pytest ===========================================
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.pypi-dependencies]
+fimjax = { path = ".", editable = true }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+style = { features = ["style"], solve-group = "default" }
+test = { features = ["test"], solve-group = "default" }
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+equinox = ">=0.11.10,<0.12"
+chex = ">=0.1.88,<0.2"
+jax = ">=0.4.35,<0.5"
+matplotlib = ">=3.9.4,<4"
+numpy = ">=2.2.0,<3"
+jaxopt = ">=0.8.3,<0.9"
+pytest = ">=8.3.4,<9"
+scipy = ">=1.14.1,<2"
+pygments = ">=2.19.1,<3"

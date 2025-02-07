@@ -89,6 +89,10 @@ log_cli_level = "INFO"
 channels = ["conda-forge"]
 platforms = ["linux-64"]
 
+# =============================================== Docs =============================================
+[docs]
+
+
 [tool.pixi.pypi-dependencies]
 fimjax = { path = ".", editable = true }
 

@@ -34,10 +34,10 @@ theme:
         name: Switch to light mode
 
   # Set Icons
-  favicon: images/radio_tower.png
+  favicon: images/sine_wave.png
   icon:
     annotation: material/plus-circle
-    logo: material/radio-tower
+    logo: material/sine-wave
     repo: material/git
 
 # -- Markdown extensions ---------------------------------------------------------------------------

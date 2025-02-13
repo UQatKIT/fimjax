@@ -20,7 +20,7 @@ This installs the environment from the [lock file](./pixi.lock). For further det
 
 ## Usage
 
-An usage example can be found in [`snippets/`](./snippets/).
+A usage example can be found in [`snippets/`](./snippets/).
 The main class is the `Solver` class, it supports calculating solutions and Vector-Jacobian-Products.
 
 We use our own wrappers for storing Meshes, the class `Mesh` just needs the vertices of a triangulation as a list of points (M, d) and the triangles as a list of indices (N, 3) into the points array.

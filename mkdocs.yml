@@ -34,7 +34,7 @@ theme:
         name: Switch to light mode
 
   # Set Icons
-  favicon: images/sine_wave.png
+  favicon: images/sine-wave.svg
   icon:
     annotation: material/plus-circle
     logo: material/sine-wave

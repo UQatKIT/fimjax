@@ -3,11 +3,11 @@
 # ==================================================================================================
 # -- Site metadata ---------------------------------------------------------------------------------
 docs_dir: docs/
-site_name: Fimjax
+site_name: fimjax
 site_author: Felix Racz
 site_description: A Fully Differentiable Solver for the Anisotropic Eikonal Equation
-repo_url: https://example.org
-repo_name: Fimjax
+repo_url: https://github.com/UQatKIT/fimjax
+repo_name: fimjax
 
 # -- Material theme configuration ------------------------------------------------------------------
 theme:

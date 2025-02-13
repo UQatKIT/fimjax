@@ -88,8 +88,8 @@ $$
 
 Note that we have already calculated $\frac{d\ell(u)}{du}\frac{du(M)}{dM}$, which becomes the adjoint vector for $\frac{dM(m)}{dm}$.
 We will look at the simple mapping $M: \mathbb R \to \mathbb R^{N_T\times 2\times 2}: M = m \cdot I_2$, where $I_2$ is the identity matrix in 2 dimensions and $M$ is constant on all triangles.
-This again corresponds to having a constant isotropic velocity, but we now have this velocity as our one parameter.
-We will again use JAX to calculate the VJP w.r.t. to the mapping
+This again corresponds to having a constant isotropic velocity, but we now use this velocity as the only parameter.
+We will again use JAX to calculate the VJP w.r.t. to the mapping.
 
 ```py
 m = float(2)

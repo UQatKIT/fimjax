@@ -46,7 +46,7 @@ The API reference contains detailed explanations of all software components of F
 
 #### Examples
 
-We provide [runnable examples](https://github.com/UQatKIT/Eikonax/tree/main/examples) in our Github repository.
+We provide [runnable examples](https://github.com/UQatKIT/fimjax/tree/main/snippets) in our Github repository.
 
 ## Acknowledgement and License
 
